@@ -1,15 +1,15 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import Loading from 'components/loading/loading';
-import ErrorComponent from 'components/template/error-component';
-import { extractQuestionnaireUrl } from 'utils/url-utils';
-import { getSurveyVerifMailById } from 'utils/read-content';
-import { getQuestionnaireUrl } from 'utils/api';
-import useAuth from 'utils/hook/auth';
-import NoSurveyPage from 'components/content/ineligible';
-import UnauthorizedPage from 'components/content/unauthorized';
+import React, { useCallback, useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import Loading from "components/loading/loading";
+import ErrorComponent from "components/template/error-component";
+import { extractQuestionnaireUrl } from "utils/url-utils";
+import { getSurveyVerifMailById } from "utils/read-content";
+import { getQuestionnaireUrl } from "utils/api";
+import useAuth from "utils/hook/auth";
+import NoSurveyPage from "components/content/ineligible";
+import UnauthorizedPage from "components/content/unauthorized";
 
-const Auth = ({ urlBackEnd, id, history, keycloakAuth }) => {
+export default function Auth({ urlBackEnd, id, history, keycloakAuth }) {
   const { loading, authenticated, authError } = useAuth(keycloakAuth);
   const [error, setError] = useState(null);
   const [ineligible, setIneligible] = useState(false);
@@ -25,7 +25,7 @@ const Auth = ({ urlBackEnd, id, history, keycloakAuth }) => {
       if (response.data && response.data.length) {
         if (getSurveyVerifMailById(id) && keycloakAuth) {
           history.push({
-            pathname: 'repondant/mail',
+            pathname: "repondant/mail",
             state: {
               urlQuestionnaire: extractQuestionnaireUrl(response),
             },
@@ -40,14 +40,14 @@ const Auth = ({ urlBackEnd, id, history, keycloakAuth }) => {
       if (e.response.status === 401 || e.response.status === 403 || e.response.status === 404) {
         setUnauthorized(true);
       } else {
-        setError('technique');
+        setError("technique");
       }
     }
   }, [history, id, urlBackEnd, keycloakAuth]);
 
   useEffect(() => {
     if (authenticated && !loading) redirectToQuestionnaire();
-    if (!authenticated && !loading && authError) setError('authentification');
+    if (!authenticated && !loading && authError) setError("authentification");
   }, [authenticated, loading, authError, redirectToQuestionnaire]);
 
   return (
@@ -72,5 +72,3 @@ Auth.propTypes = {
     search: PropTypes.string.isRequired,
   }).isRequired,
 };
-
-export default Auth;

@@ -1,23 +1,23 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { Route, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React from "react";
+import { Helmet } from "react-helmet";
+import { Route, Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
 
-import Auth from 'components/auth';
-import Menu from 'components/template/menu';
-import Banner from 'components/template/banner';
-import FooterMenu from 'components/template/footer-menu';
-import ResponseButton from 'components/template/response-button';
-import Faq from 'components/content/faq';
-import ImagesViewer from 'components/template/images-viewer';
-import Accessibilite from 'components/content/accessibilite';
-import SurveyDescription from 'components/content/survey-description';
-import ResultatsEnquete from 'components/content/resultats-enquete';
-import UtiliteReponse from 'components/content/utilite-reponse';
-import AssistanceForm from 'components/forms/assistance-form';
-import AssistanceRouter from 'components/forms/assistance-router';
-import ControlEmailForm from 'components/forms/mail-modif';
-import DonneesPersonnelles from './content/donnees-personnelles';
+import Auth from "./auth";
+import Menu from "components/template/menu";
+import Banner from "components/template/banner";
+import FooterMenu from "components/template/footer-menu";
+import ResponseButton from "components/template/response-button";
+import Faq from "components/content/faq";
+import ImagesViewer from "components/template/images-viewer";
+import Accessibilite from "components/content/accessibilite";
+import SurveyDescription from "components/content/survey-description";
+import ResultatsEnquete from "components/content/resultats-enquete";
+import UtiliteReponse from "components/content/utilite-reponse";
+import AssistanceForm from "components/forms/assistance-form";
+import AssistanceRouter from "components/forms/assistance-router";
+import ControlEmailForm from "components/forms/mail-modif";
+import DonneesPersonnelles from "./content/donnees-personnelles";
 
 import {
   idExists,
@@ -29,7 +29,7 @@ import {
   getSurveyDescriptionTitle,
   getA11yBody,
   getA11yTitle,
-} from '../utils/read-content';
+} from "../utils/read-content";
 
 class Main extends React.Component {
   constructor(props) {
