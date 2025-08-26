@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Email from 'components/form-elements/Email';
-import ImportantInfo from 'components/content/importantInfo';
-import validate from 'utils/validate-forms';
-import { putMailToLdap } from 'utils/api';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import Email from "components/form-elements/Email";
+import ImportantInfo from "components/content/importantInfo";
+import validate from "utils/validate-forms";
+import { putMailToLdap } from "utils/api";
 
-const EmailForm = ({ emailKnown, currentMail, urlBackEnd, redirectToQuestionnaire }) => {
+export default function EmailForm({ emailKnown, currentMail, urlBackEnd, redirectToQuestionnaire }) {
   const [formControls, setFormControls] = useState({
     newEmail: {
-      value: '',
-      placeholder: '',
+      value: "",
+      placeholder: "",
       valid: false,
       validationRules: {
         isEmail: true,
@@ -18,8 +18,8 @@ const EmailForm = ({ emailKnown, currentMail, urlBackEnd, redirectToQuestionnair
       touched: false,
     },
     confirmEmail: {
-      value: '',
-      placeholder: '',
+      value: "",
+      placeholder: "",
       valid: false,
       validationRules: {
         isEmail: true,
@@ -87,7 +87,7 @@ const EmailForm = ({ emailKnown, currentMail, urlBackEnd, redirectToQuestionnair
     setDisplayBadRequest(true);
     setFormIsValid(false);
     if (err.response !== undefined && err.response.status === 409) {
-      setDisplayErrorText('Adresse déjà utilisée, merci de bien vouloir en choisir une autre');
+      setDisplayErrorText("Adresse déjà utilisée, merci de bien vouloir en choisir une autre");
       setFormControls({
         ...formControls,
 
@@ -101,7 +101,7 @@ const EmailForm = ({ emailKnown, currentMail, urlBackEnd, redirectToQuestionnair
         },
       });
     } else {
-      setDisplayErrorText('Problème lors de la requête');
+      setDisplayErrorText("Problème lors de la requête");
       setFormControls({
         ...formControls,
 
@@ -122,7 +122,7 @@ const EmailForm = ({ emailKnown, currentMail, urlBackEnd, redirectToQuestionnair
     setDisplayConfirmEmailDifferent(false);
     setDisplayBadRequest(false);
     setDisplayEmailInvalid(false);
-    setDisplayErrorText('');
+    setDisplayErrorText("");
     const newEmailValidity = validate(
       formControls.newEmail.value,
       formControls.newEmail.validationRules
@@ -134,12 +134,12 @@ const EmailForm = ({ emailKnown, currentMail, urlBackEnd, redirectToQuestionnair
 
     if (
       (!currentMail &&
-        (formControls.newEmail.value !== '' || formControls.confirmEmail.value !== '')) ||
-      (modifyMail && (formControls.newEmail.value !== '' || formControls.confirmEmail.value !== ''))
+        (formControls.newEmail.value !== "" || formControls.confirmEmail.value !== "")) ||
+      (modifyMail && (formControls.newEmail.value !== "" || formControls.confirmEmail.value !== ""))
     ) {
       if (formControls.newEmail.value !== formControls.confirmEmail.value) {
         setDisplayConfirmEmailDifferent(true);
-        setDisplayErrorText('Les adresses ne correspondent pas');
+        setDisplayErrorText("Les adresses ne correspondent pas");
         setFormControls({
           ...formControls,
 
@@ -229,7 +229,7 @@ const EmailForm = ({ emailKnown, currentMail, urlBackEnd, redirectToQuestionnair
                 <p>
                   <label htmlFor="newEmail">
                     {!modifyMail
-                      ? `Saisir l'adresse de messagerie`
+                      ? `Saisir l"adresse de messagerie`
                       : `Nouvelle adresse de messagerie`}
                   </label>
                   <Email
@@ -247,7 +247,7 @@ const EmailForm = ({ emailKnown, currentMail, urlBackEnd, redirectToQuestionnair
                   />
                   <label htmlFor="confirmEmail">
                     {!modifyMail
-                      ? `Confirmer l'adresse de messagerie`
+                      ? `Confirmer l"adresse de messagerie`
                       : `Confirmer la nouvelle adresse de messagerie`}
                   </label>
                   <Email
@@ -272,7 +272,7 @@ const EmailForm = ({ emailKnown, currentMail, urlBackEnd, redirectToQuestionnair
               )}
 
               <button
-                className={!formIsValid ? 'button-disabled btn btn-md' : 'btn btn-md'}
+                className={!formIsValid ? "button-disabled btn btn-md" : "btn btn-md"}
                 id="boutonMailConfirm"
                 type="button"
                 onClick={formSubmitHandler}
@@ -298,8 +298,6 @@ const EmailForm = ({ emailKnown, currentMail, urlBackEnd, redirectToQuestionnair
     </>
   );
 };
-
-export default EmailForm;
 
 EmailForm.defaultProps = {
   emailKnown: null,
