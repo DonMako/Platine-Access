@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { keycloakAuthentication, kc, refreshToken } from 'utils/keycloak';
+import { useState, useEffect } from "react";
+import { keycloakAuthentication, kc, refreshToken } from "utils/keycloak";
 
-const useAuth = (use = false) => {
+export default function useAuth({use = false}) {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   const [authError, setAuthError] = useState(false);
@@ -19,7 +19,7 @@ const useAuth = (use = false) => {
   useEffect(() => {
     if (use) {
       if (!kc.authenticated) {
-        keycloakAuthentication({ onLoad: 'login-required', checkLoginIframe: false })
+        keycloakAuthentication({ onLoad: "login-required", checkLoginIframe: false })
           .then(auth => {
             if (auth) {
               accessAuthorized();
@@ -44,7 +44,6 @@ const useAuth = (use = false) => {
       accessAuthorized();
     }
   }, [use]);
+  
   return { authenticated, loading, authError };
 };
-
-export default useAuth;

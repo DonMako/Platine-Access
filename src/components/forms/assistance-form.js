@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TextInput from 'components/form-elements/textInput';
 import Select from 'components/form-elements/select';
 import TextArea from 'components/form-elements/textArea';
-import ErrorComponent from 'components/template/error-component';
+import ErrorComponent from 'components/template/ErrorComponent';
 import validate from 'utils/validate-forms';
 import { getSurveyRootUrl } from 'utils/url-utils';
 import { getListOptionsMailAssitance, getListOptionsSurvey } from 'utils/read-content';

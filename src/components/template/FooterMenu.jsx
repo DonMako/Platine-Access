@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-import logoTwitter from 'img/common/logo-twitter.png';
-import { urlInseeFr } from 'utils/properties';
-import { getIsSurveyOnlineById } from 'utils/read-content';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import logoTwitter from "img/common/logo-twitter.png";
+import { urlInseeFr } from "utils/properties";
+import { getIsSurveyOnlineById } from "utils/read-content";
 
-function FooterMenu({ path, home, id }) {
+export default function FooterMenu({ path, home, id }) {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 767);
   const updateFooterMenu = () => {
     if (window.innerWidth <= 767) {
@@ -16,8 +16,8 @@ function FooterMenu({ path, home, id }) {
     }
   };
   useEffect(() => {
-    window.addEventListener('resize', updateFooterMenu);
-    return () => window.removeEventListener('resize', updateFooterMenu);
+    window.addEventListener("resize", updateFooterMenu);
+    return () => window.removeEventListener("resize", updateFooterMenu);
   });
   return (
     <>
@@ -26,7 +26,7 @@ function FooterMenu({ path, home, id }) {
           <Navbar fixedBottom>
             <Nav>
               <NavItem eventKey={1} href={urlInseeFr} target="_blank" rel="noopener noreferrer">
-                {`Accéder au site de l'Insee`}
+                {`Accéder au site de l"Insee`}
               </NavItem>
             </Nav>
             <Nav pullRight>
@@ -46,14 +46,14 @@ function FooterMenu({ path, home, id }) {
               </LinkContainer>
               {getIsSurveyOnlineById(id) && (
                 <LinkContainer to={`/${id}/contacter-assistance`}>
-                  <NavItem eventKey={2}>{`Contacter l'assistance`}</NavItem>
+                  <NavItem eventKey={2}>{`Contacter l"assistance`}</NavItem>
                 </LinkContainer>
               )}
               <LinkContainer to={`/${id}/accessibilite`}>
                 <NavItem eventKey={3}>{`Accessibilité`}</NavItem>
               </LinkContainer>
               <NavItem eventKey={4} href={urlInseeFr} target="_blank" rel="noopener noreferrer">
-                {`Accéder au site de l'Insee`}
+                {`Accéder au site de l"Insee`}
               </NavItem>
             </Nav>
             <Nav pullRight>
@@ -67,7 +67,7 @@ function FooterMenu({ path, home, id }) {
     </>
   );
 }
-export default FooterMenu;
+
 FooterMenu.propTypes = {
   path: PropTypes.string.isRequired,
   home: PropTypes.bool.isRequired,

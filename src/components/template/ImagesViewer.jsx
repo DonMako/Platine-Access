@@ -1,9 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Image } from 'react-bootstrap';
+import React from "react";
+import PropTypes from "prop-types";
+import { Image } from "react-bootstrap";
 
-export default function ImagesViewer(props) {
-  const { id } = props;
+export default function ImagesViewer({ id }) {
   return (
     <section>
       <div className="images-wrapper">

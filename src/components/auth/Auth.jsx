@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Loading from "components/loading/loading";
-import ErrorComponent from "components/template/error-component";
+import ErrorComponent from "components/template/ErrorComponent";
 import { extractQuestionnaireUrl } from "utils/url-utils";
 import { getSurveyVerifMailById } from "utils/read-content";
 import { getQuestionnaireUrl } from "utils/api";
-import useAuth from "utils/hook/auth";
+import useAuth from "utils/hook/useAuth";
 import NoSurveyPage from "components/content/ineligible";
 import UnauthorizedPage from "components/content/unauthorized";
 

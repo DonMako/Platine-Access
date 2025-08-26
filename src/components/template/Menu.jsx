@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Navbar, Nav, NavItem, Glyphicon } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Link } from 'react-router-dom';
-import { urlInseeFr } from 'utils/properties';
-import logoTwitter from 'img/common/logo-twitter.png';
-import { getResultsMenuTitle, getSurveyDetailLink } from 'utils/read-content';
-import { getIsSurveyOnlineById } from '../../utils/read-content';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { Navbar, Nav, NavItem, Glyphicon } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
+import { urlInseeFr } from "utils/properties";
+import logoTwitter from "img/common/logo-twitter.png";
+import { getResultsMenuTitle, getSurveyDetailLink } from "utils/read-content";
+import { getIsSurveyOnlineById } from "../../utils/read-content";
 
-function Menu({ id }) {
+export default function Menu({ id }) {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 767);
   const updateFooterMenu = () => {
     if (window.innerWidth <= 767) {
@@ -18,8 +18,8 @@ function Menu({ id }) {
     }
   };
   useEffect(() => {
-    window.addEventListener('resize', updateFooterMenu);
-    return () => window.removeEventListener('resize', updateFooterMenu);
+    window.addEventListener("resize", updateFooterMenu);
+    return () => window.removeEventListener("resize", updateFooterMenu);
   });
   return (
     <div className="container-fluid">
@@ -59,7 +59,7 @@ function Menu({ id }) {
                 <NavItem eventKey={5}>{getResultsMenuTitle(id)}</NavItem>
               </LinkContainer>
               <NavItem eventKey={6} href={getSurveyDetailLink(id)} target="_blank">
-                {`L'enquête en détail`}
+                {`L"enquête en détail`}
               </NavItem>
               {!isDesktop && (
                 <>
@@ -68,7 +68,7 @@ function Menu({ id }) {
                   </NavItem>
                   {getIsSurveyOnlineById(id) && (
                     <NavItem eventKey={8} href={`/${id}/contacter-assistance`}>
-                      {`Contacter l'assistance`}
+                      {`Contacter l"assistance`}
                     </NavItem>
                   )}
 
@@ -81,7 +81,7 @@ function Menu({ id }) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {`Accéder au site de l'Insee`}
+                    {`Accéder au site de l"Insee`}
                   </NavItem>
                   <NavItem eventKey={11} href="https://twitter.com/inseefr" target="_blank">
                     <img width={30} height={30} alt="logo-twitter" src={logoTwitter} />
@@ -96,7 +96,6 @@ function Menu({ id }) {
   );
 }
 
-export default Menu;
 Menu.propTypes = {
   id: PropTypes.string.isRequired,
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import Banner from "./template/banner";
-import FooterMenu from "./template/footer-menu";
+import FooterMenu from "./template/FooterMenu";
 import { getSurveys } from "utils/read-content";
-import SurveyItem from "./template/survey-item";
+import SurveyItem from "./template/SurveyItem";
 
 export default function Home() {
   return (
