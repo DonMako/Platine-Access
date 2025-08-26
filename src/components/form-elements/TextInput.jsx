@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const TextInput = props => {
   const { touched, valid, errorMessage } = props;
-  const formControl = touched && !valid ? 'form-control control-error' : 'form-control';
+  const formControl = touched && !valid ? "form-control control-error" : "form-control";
 
   const myProps = { ...props };
   delete myProps.touched;
@@ -15,8 +15,8 @@ const TextInput = props => {
       <input
         type="text"
         className={formControl}
-        touched={touched ? 'true' : 'false'}
-        valid={valid ? 'true' : 'false'}
+        touched={touched ? "true" : "false"}
+        valid={valid ? "true" : "false"}
         {...myProps}
       />
       {errorMessage}
@@ -32,5 +32,5 @@ TextInput.propTypes = {
   errorMessage: PropTypes.string,
 };
 TextInput.defaultProps = {
-  errorMessage: '',
+  errorMessage: "",
 };

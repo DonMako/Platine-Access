@@ -3,7 +3,7 @@ import ReactLoading from 'react-loading';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Loading = ({ id }) => {
+export default function Loading({ id }) {
   return (
     <Link to={`/${id}`}>
       <div className={`wrap-loader`}>
@@ -13,7 +13,6 @@ const Loading = ({ id }) => {
     </Link>
   );
 };
-export default Loading;
 
 Loading.propTypes = {
   id: PropTypes.string.isRequired,

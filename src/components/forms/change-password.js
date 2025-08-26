@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextInput from 'components/form-elements/textInput';
-import PasswordInput from 'components/form-elements/passwordInput';
+import PasswordInput from 'components/form-elements/PasswordInput';
 import validate from 'utils/validate-forms';
 import isPasswordCompliant from 'utils/validate-password';
 import { getSurveyRootUrl } from 'utils/url-utils';

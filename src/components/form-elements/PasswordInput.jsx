@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const PasswordInput = props => {
-  let formControl = 'form-control';
+  let formControl = "form-control";
   let validationError = null;
 
   if (props.touched && !props.valid) {
-    formControl = 'form-control control-error';
+    formControl = "form-control control-error";
     validationError = <p className="validation-error">{props.errorMessage}</p>;
   }
 

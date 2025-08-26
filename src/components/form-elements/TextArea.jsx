@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const TextArea = props => {
   const { touched, valid } = props;
-  const formControl = touched && !valid ? 'form-control control-error' : 'form-control';
+  const formControl = touched && !valid ? "form-control control-error" : "form-control";
 
   const myProps = { ...props };
   delete myProps.touched;
@@ -13,8 +13,8 @@ const TextArea = props => {
     <div className="form-group">
       <textarea
         className={formControl}
-        touched={touched ? 'true' : 'false'}
-        valid={valid ? 'true' : 'false'}
+        touched={touched ? "true" : "false"}
+        valid={valid ? "true" : "false"}
         {...myProps}
       />
     </div>

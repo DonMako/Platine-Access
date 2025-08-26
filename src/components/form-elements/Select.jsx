@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 const Select = props => {
-  let formControl = 'form-control';
+  let formControl = "form-control";
 
   if (props.touched && !props.valid) {
-    formControl = 'form-control control-error';
+    formControl = "form-control control-error";
   }
 
   return (

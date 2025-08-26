@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextInput from 'components/form-elements/textInput';
-import Select from 'components/form-elements/select';
-import TextArea from 'components/form-elements/textArea';
+import Select from 'components/form-elements/Select';
+import TextArea from 'components/form-elements/TextArea';
 import ErrorComponent from 'components/template/ErrorComponent';
 import validate from 'utils/validate-forms';
 import { getSurveyRootUrl } from 'utils/url-utils';

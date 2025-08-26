@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Email from 'components/form-elements/email';
+import Email from 'components/form-elements/Email';
 import ImportantInfo from 'components/content/importantInfo';
 import validate from 'utils/validate-forms';
 import { putMailToLdap } from 'utils/api';
