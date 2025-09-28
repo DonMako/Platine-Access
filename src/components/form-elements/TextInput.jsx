@@ -15,8 +15,8 @@ const TextInput = props => {
       <input
         type="text"
         className={formControl}
-        touched={touched ? "true" : "false"}
-        valid={valid ? "true" : "false"}
+        touched={touched}
+        valid={valid}
         {...myProps}
       />
       {errorMessage}
