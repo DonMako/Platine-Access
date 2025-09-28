@@ -13,8 +13,8 @@ const TextArea = props => {
     <div className="form-group">
       <textarea
         className={formControl}
-        touched={touched ? "true" : "false"}
-        valid={valid ? "true" : "false"}
+        touched={touched}
+        valid={valid}
         {...myProps}
       />
     </div>
